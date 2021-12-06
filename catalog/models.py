@@ -30,11 +30,16 @@ class Book(models.Model):
     class Meta:
         ordering = ["title", "author"]
 
-    def __str__(self):
-        return self.title
+    def display_genre(self):
+        return ", ".join(genre.name for genre in self.genre.all()[:3])
+
+    display_genre.short_description = "Genre"
 
     def get_absolute_url(self):
         return reverse("book-detail", args=[str(self.id)])
+
+    def __str__(self):
+        return self.title
 
 
 class Language(models.Model):
