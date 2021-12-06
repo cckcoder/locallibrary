@@ -27,13 +27,15 @@ from django.views.generic import ListView, DetailView
 class AuthorListView(ListView):
     model = Author
 
+
 class AuthorDetailView(DetailView):
     model = Author
+
 
 class BookListView(ListView):
     model = Book
     paginate_by = 2
 
+
 class BookDetailView(DetailView):
     model = Book
-
